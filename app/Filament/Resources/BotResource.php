@@ -23,7 +23,11 @@ class BotResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Forms\Components\TextInput::make('token')
+                    ->required()
+                    ->maxLength(150)
+                    ->columnSpanFull(),
+                Forms\Components\Toggle::make('is_active')->default(true)
             ]);
     }
 
@@ -31,7 +35,8 @@ class BotResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('token'),
+                Tables\Columns\ToggleColumn::make('is_active')
             ])
             ->filters([
                 //
