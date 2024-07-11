@@ -36,7 +36,7 @@ class BotResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('token'),
-                Tables\Columns\ToggleColumn::make('is_active')
+                Tables\Columns\ToggleColumn::make('is_active'),
             ])
             ->filters([
                 //

@@ -5,17 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use DefStudio\Telegraph\Models\TelegraphChat as BaseModel;
 
-class Chat extends Model
+class Chat extends BaseModel
 {
-    use HasFactory;
-
     protected $fillable = [
         'is_active'
     ];
-
-    public function bots(): BelongsToMany
-    {
-        return $this->belongsToMany(Bot::class);
-    }
 }

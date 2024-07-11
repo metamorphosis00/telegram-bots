@@ -18,7 +18,7 @@ class ChatsRelationManager extends RelationManager
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('id')
+                Forms\Components\TextInput::make('chat_id')
                     ->required()
                     ->maxLength(255),
             ]);
@@ -27,9 +27,9 @@ class ChatsRelationManager extends RelationManager
     public function table(Table $table): Table
     {
         return $table
-            ->recordTitleAttribute('id')
+            ->recordTitleAttribute('chat_id')
             ->columns([
-                Tables\Columns\TextColumn::make('id'),
+                Tables\Columns\TextColumn::make('chat_id'),
             ])
             ->filters([
                 //
