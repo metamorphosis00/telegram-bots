@@ -13,8 +13,13 @@ return new class extends Migration
     {
         Schema::create('chats', function (Blueprint $table) {
             $table->id();
-            $table->tinyInteger('is_active');
+            $table->string('chat_id');
+            $table->string('name')->nullable();
+            $table->foreignId('telegraph_bot_id')->constrained('bots')->cascadeOnDelete();
+            $table->tinyInteger('is_active')->default(true);
             $table->timestamps();
+
+            $table->unique(['chat_id', 'telegraph_bot_id']);
         });
     }
 

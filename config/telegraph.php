@@ -28,7 +28,7 @@ return [
          *
          * For reference, see https://docs.defstudio.it/telegraph/webhooks/overview
          */
-        'handler' => DefStudio\Telegraph\Handlers\EmptyWebhookHandler::class,
+        'handler' => App\Http\Webhooks\TelegramWebhookHandler::class,
 
         /*
          * Middleware to be applied to the webhook route
@@ -41,7 +41,7 @@ return [
          *
          * For reference, see https://core.telegram.org/bots/api#using-a-local-bot-api-server
          */
-        // 'domain' => 'http://my.custom.domain',
+//         'domain' => 'https://2863-84-54-71-64.ngrok-free.app',
 
         /*
          * If enabled, unknown webhook commands are
@@ -53,7 +53,7 @@ return [
          * If enabled, Telegraph dumps received
          * webhook messages to logs
          */
-        'debug' => false,
+        'debug' => true,
     ],
 
     /*
@@ -70,7 +70,7 @@ return [
         /*
          * if enabled, allows messages and commands from unregistered chats
          */
-        'allow_messages_from_unknown_chats' => false,
+        'allow_messages_from_unknown_chats' => true,
 
         /*
          * if enabled, store unknown chats as new TelegraphChat models

@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('bots', function (Blueprint $table) {
             $table->id();
+            $table->string('name')->nullable();
             $table->string('token')->unique();
-            $table->tinyInteger('is_active');
+            $table->tinyInteger('is_active')->default(true);
             $table->timestamps();
         });
     }
