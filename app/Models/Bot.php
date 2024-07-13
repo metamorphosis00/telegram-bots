@@ -2,9 +2,7 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use App\Observers\BotObserver;
 use DefStudio\Telegraph\Models\TelegraphBot as BaseModel;
 
 class Bot extends BaseModel
@@ -13,4 +11,10 @@ class Bot extends BaseModel
         'token',
         'is_active'
     ];
+
+    public static function booted()
+    {
+        parent::booted();
+        Bot::observe(BotObserver::class);
+    }
 }
